@@ -10,7 +10,7 @@
                             <div class="clearfix"></div>
                             <img src="../../assets/img/svgs/user.svg" class="ht-100 mb-0" alt="user">
                             <h5 class="mt-4 text-white">{{ __('Create Your Account') }}</h5>
-                            <span class="tx-white-6 tx-13 mb-5 mt-xl-0">{{ __('Signup to create, discover and connect with the global community') }}</span>
+                            <span class="tx-white-6 tx-13 mb-5 mt-xl-0">{{ __('Veuillez entrer le login et le mot de passe') }}</span>
                         </div>
                     </div>
                     <div class="col-lg-6 col-xl-7 col-xs-12 col-sm-12 login_form ">
@@ -22,12 +22,12 @@
                                     <form method="POST" action="{{ route('login') }}" data-parsley-validate="">
                                         @csrf
 
-                                        <h5 class="text-left mb-2">{{ __('Signin to Your Account') }}</h5>
+                                        <h5 class="text-left mb-2">{{ __('Sign in') }}</h5>
                                         <p class="mb-4 text-muted tx-13 ml-0 text-left">{{ __('Signin to create, discover and connect with the global community') }}</p>
                                         <div class="form-group text-left">
                                             <label></label>
                                             <input class="form-control @error('email') is-invalid state-invalid @enderror" placeholder={{ __('Enter your Email') }} name="email" value="{{ old('email') }}" required="" type="email">
-                                            <x-input-error :messages="$errors->get('email')" class="invalid-feedback" />	
+                                            <x-input-error :messages="$errors->get('email')" class="invalid-feedback" />
                                         </div>
                                         <div class="form-group text-left">
                                             <label>{{ __('Password') }}</label>

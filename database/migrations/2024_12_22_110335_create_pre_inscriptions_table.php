@@ -13,12 +13,11 @@ return new class extends Migration
     {
         Schema::create('pre_inscriptions', function (Blueprint $table) {
             $table->id();
-            $table->string("nom")->require();
-            $table->string("prenom")->require();
-            $table->string("email")->require();
-            $table->string("photo")->require();
-            $table->boolean("status")->default(0);
-            $table->date("date_naissance")->require();
+            $table->string('nom');
+            $table->string('prenom');
+            $table->string('email')->unique();
+            $table->date('date_naissance');
+            $table->string('file')->nullable();
             $table->timestamps();
         });
     }

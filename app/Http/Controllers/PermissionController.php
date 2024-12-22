@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\User;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Permission;
 
@@ -28,19 +28,29 @@ class PermissionController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => [
-                'required',
-                'string',
-                'unique:permissions,name'
-            ]
+        // Valider les données
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email',
+            'date_of_birth' => 'required|date',
+            'file' => 'nullable|file|mimes:jpg,jpeg,png,pdf|max:2048',
         ]);
 
-        Permission::create([
-            'name' => $request->name
+        // Enregistrer le fichier si présent
+        $filePath = null;
+        if ($request->hasFile('file')) {
+            $filePath = $request->file('file')->store('uploads', 'public');
+        }
+
+        // Enregistrer les données dans la BD
+        User::create([
+            'name' => $validated['name'],
+            'email' => $validated['email'],
+            'date_of_birth' => $validated['date_of_birth'],
+            'file_path' => $filePath,
         ]);
 
-        return redirect('permissions')->with('status','Permission Created Successfully');
+        return redirect()->back()->with('success', 'Informations enregistrées avec succès !');
     }
 
     public function edit(Permission $permission)
@@ -71,4 +81,5 @@ class PermissionController extends Controller
         $permission->delete();
         return redirect('permissions')->with('status','Permission Deleted Successfully');
     }
+
 }
