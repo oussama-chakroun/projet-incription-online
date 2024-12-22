@@ -6,6 +6,7 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PermissionController;
+use App\Http\Controllers\PreInscriptionController;
 use App\Mail\SendValidationCondidature;
 use Illuminate\Support\Facades\Mail;
 
@@ -31,6 +32,13 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/pre_inscription', function () {
+    return view('preinscription.preinscription-register');
+})->name('pre_inscription');
+
+
+Route::get('/pre_inscription/list', [PreInscriptionController::class , 'index'])->name('pre_inscription.list');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

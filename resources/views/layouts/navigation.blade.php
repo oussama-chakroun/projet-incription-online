@@ -123,7 +123,7 @@
             </div> --}}
             <div class="dropdown main-profile-menu">
                 <a class="d-flex" href="">
-                    <span class="main-img-user" ><img alt="avatar" src="../../assets/img/users/1.jpg"></span>
+                    <span class="main-img-user" ><img alt="avatar" src="{{ asset('storage\images\users\default-avatar.jpg') }}"></span>
                 </a>
                 <div class="dropdown-menu">
                     <div class="header-navheading">

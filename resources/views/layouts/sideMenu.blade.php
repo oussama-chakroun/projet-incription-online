@@ -9,9 +9,15 @@
     <div class="main-sidebar-body">
         <ul class="nav">
             <li class="nav-header"><span class="nav-label">{{__('messages.dashboard')}}</span></li>
-            <li class="nav-item {{ request()->is('dashboard') ? 'active' : '' }}">
+            <li class="nav-item">
                 <a class="nav-link" href="{{ route('dashboard') }}"><span class="shape1"></span><span class="shape2"></span><i class="ti-home sidemenu-icon"></i><span class="sidemenu-label">{{__('messages.dashboard')}}</span></a>
             </li>
+
+            @role('super-admin|admin')
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('pre_inscription.list') }}"><span class="shape1"></span><span class="shape2"></span><i class="mdi mdi-account-multiple sidemenu-icon"></i><span class="sidemenu-label">{{__('messages.pre_inscription_list')}}</span></a>
+                </li>
+            @endrole
         </ul>
     </div>
 </div>

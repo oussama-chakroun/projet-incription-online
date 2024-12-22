@@ -67,9 +67,8 @@
                     @else
                         <li><a class="page-scroll" href="{{ route('login') }}">Log in</a></li>
 
-                        @if (Route::has('register'))
-                            <li><a class="page-scroll" href="{{ route('register') }}">Register</a></li>
-
+                        @if (Route::has('pre_inscription'))
+                            <li><a class="page-scroll" href="{{ route('pre_inscription') }}">Pre Inscription</a></li>
                         @endif
                     @endauth
             @endif
