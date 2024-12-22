@@ -9,55 +9,10 @@
                 <a href="index.html"><img src="../../assets/img/brand/logo.png" class="mobile-logo" alt="logo"></a>
                 <a href="index.html"><img src="../../assets/img/brand/logo-light.png" class="mobile-logo-dark" alt="logo"></a>
             </div>
-            <div class="input-group">
-                <div class="input-group-btn search-panel">
-                    <select class="form-control select2-no-search">
-                        <option label="All categories">
-                        </option>
-                        
-                    </select>
-                </div>
-                <input type="search" class="form-control rounded-0" placeholder="Search for anything...">
-                <button class="btn search-btn"><i class="fe fe-search"></i></button>
-            </div>
         </div>
         <div class="main-header-right">
-            <div class="dropdown header-search">
-                <a class="nav-link icon header-search">
-                    <i class="fe fe-search header-icons"></i>
-                </a>
-                <div class="dropdown-menu">
-                    <div class="main-form-search p-2">
-                        <div class="input-group">
-                            <div class="input-group-btn search-panel">
-                                <select class="form-control select2-no-search">
-                                    <option label="All categories">
-                                    </option>
-                                    <option value="IT Projects">
-                                        IT Projects
-                                    </option>
-                                    <option value="Business Case">
-                                        Business Case
-                                    </option>
-                                    <option value="Microsoft Project">
-                                        Microsoft Project
-                                    </option>
-                                    <option value="Risk Management">
-                                        Risk Management
-                                    </option>
-                                    <option value="Team Building">
-                                        Team Building
-                                    </option>
-                                </select>
-                            </div>
-                            <input type="search" class="form-control" placeholder="Search for anything...">
-                            <button class="btn search-btn"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div class="dropdown main-header-notification flag-dropdown">
-                @php 
+                @php
                     $user = auth()->user();
                 @endphp
                 @if ($user->lang == 'en')
@@ -77,13 +32,13 @@
                                 <span class="mt-2">{{__('messages.arab')}}</span>
                             </div>
                         </a>
-    
+
                     </div>
                 @endif
                 @if ($user->lang == 'fr')
                     <a class="nav-link" >
                         <span class="avatar mr-3 align-self-center bg-transparent"><img src="../../assets/img/flags/french_flag.jpg" alt="img"></span>
-                        
+
                     </a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item d-flex" id="fr" onclick="changeLanguage('en')">
@@ -98,13 +53,13 @@
                                 <span class="mt-2">{{__('messages.arab')}}</span>
                             </div>
                         </a>
-    
+
                     </div>
                 @endif
                 @if ($user->lang == 'ar')
                     <a class="nav-link" >
                         <span class="avatar mr-3 align-self-center bg-transparent"><img src="../../assets/img/flags/ma.png" alt="img"></span>
-                        
+
                     </a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item d-flex" id="fr" onclick="changeLanguage('fr')">
@@ -119,7 +74,7 @@
                                 <span class="mt-2">{{__('messages.english')}}</span>
                             </div>
                         </a>
-    
+
                     </div>
                 @endif
             </div>
@@ -183,13 +138,13 @@
                             <i class="si si-energy"></i>{{__('messages.roles_and_permission')}}
                         </a>
                     @endrole
-                    
+
                     <a class="dropdown-item" href="profile.html">
                         <i class="fe fe-compass"></i> {{__('messages.activity')}}
                     </a>
                     <form class="dropdown-item" method="POST" action="{{ route('logout') }}">
                         @csrf
-                        <i class="fe fe-power"></i> 
+                        <i class="fe fe-power"></i>
                         <button type="submit" class="dropdown-item" style="background-color: transparent ; border: none; margin:0; padding:0;">
                             {{__('messages.log_out')}}
                         </button>

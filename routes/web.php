@@ -6,6 +6,8 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PermissionController;
+use App\Mail\SendValidationCondidature;
+use Illuminate\Support\Facades\Mail;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +21,11 @@ use App\Http\Controllers\PermissionController;
 */
 
 Route::get('/', function () {
+
+        // Mail::to('choussama816@gmail.com')
+        // ->send(new SendValidationCondidature());
     return view('welcome');
+
 });
 
 Route::get('/dashboard', function () {
@@ -33,19 +39,19 @@ Route::middleware('auth')->group(function () {
     Route::get('/user/{user}/{lang}', [UserController::class, 'updateLang'])->name('user.lang');
 
     Route::group(['middleware' => ['role:super-admin|admin|support']], function() {
-    
+
         Route::resource('permissions', PermissionController::class);
         Route::get('permissions/{permissionId}/delete', [PermissionController::class, 'destroy']);
-    
+
         Route::resource('roles', RoleController::class);
         Route::get('roles/{roleId}/delete', [RoleController::class, 'destroy']);
         Route::get('roles/{roleId}/give-permissions', [RoleController::class, 'addPermissionToRole']);
         Route::put('roles/{roleId}/give-permissions', [RoleController::class, 'givePermissionToRole']);
-    
+
         Route::resource('users', UserController::class);
-        
+
         Route::get('users/{userId}/delete', [UserController::class, 'destroy']);
-    
+
     });
 });
 

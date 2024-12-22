@@ -43,14 +43,14 @@
                                     <td>{{ $role->id }}</td>
                                     <td>{{ $role->name }}</td>
                                     <td>
-                                        
+
 
                                         @if ($role->name == "super-admin")
                                             {{__('messages.not_allow')}}
-                                        
+
                                         @else
                                             <a href="{{ url('roles/'.$role->id.'/give-permissions') }}" class="btn btn-warning">
-                                                {{__('messages.add_edit_role_permission')}}
+                                                {{__('messages.permissions')}}
                                             </a>
 
                                             @can('update role')
@@ -60,7 +60,7 @@
                                             @endcan
 
                                             @can('delete role')
-                                            <a href="{{ url('roles/'.$role->id.'/delete') }}" class="btn btn-danger mx-2">
+                                            <a href="{{ url('roles/'.$role->id.'/delete') }}" class="btn btn-danger">
                                                 {{__('messages.delete')}}
                                             </a>
                                             @endcan
