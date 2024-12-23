@@ -65,6 +65,7 @@
                             <div class="col-md-8 pl-md-2">
                                 <button type="submit" class="btn ripple btn-primary pd-x-30 mg-r-5">Register</button>
                                 <button type="reset" class="btn ripple btn-secondary pd-x-30">Cancel</button>
+                                <a href="/" class="btn ripple btn-secondary pd-x-30">Home</a>
                             </div>
                         </div>
                     </form>

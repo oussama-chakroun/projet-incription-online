@@ -39,7 +39,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="">{{__('messages.roles')}}</label>
-                                <select name="roles[]" class="form-control" multiple>
+                                <select name="roles[]" class="form-control">
                                     <option value="">{{__('messages.select')}} {{__('messages.role')}}</option>
                                     @foreach ($roles as $role)
                                     <option

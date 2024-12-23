@@ -2,11 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\SendRejectedCondidature;
+use App\Mail\SendValidationCondidature;
 use App\Models\PreInscription;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
 
 class PreInscriptionController extends Controller
 {
+
+    public function index()
+    {
+        $items = PreInscription::all();
+        return view("preinscription.index", compact('items'));
+    }
     public function store(Request $request)
     {
         // Validation des données
@@ -35,5 +47,72 @@ class PreInscriptionController extends Controller
         $preInscription->save(); // Sauvegarde les données dans la base de données
 
         return redirect()->back()->with('success', 'Inscription réussie');
+    }
+
+    public function rejectCondidature(PreInscription $preInscription)
+    {
+
+        $preInscription->status = 0;
+
+
+        $preInscription->save();
+
+
+
+        // Retrieve the associated user
+        $user = $preInscription->user;
+
+        // Check if the user is not null
+        if ($user) {
+            $user->delete(); // Delete the user
+        }
+
+        Mail::to($preInscription->email)
+        ->send(new SendRejectedCondidature($preInscription->prenom . " " . $preInscription->nom));
+
+
+        return redirect()->back()->with('success', 'Pre-Inscription rejected !');
+    }
+
+    public function validateCondidature(PreInscription $preInscription)
+    {
+
+
+        if ( $preInscription->status != 1) {
+
+            $preInscription->status = 1;
+
+            $user = $this->createUser($preInscription);
+
+
+            $preInscription->user()->save($user);
+
+            $preInscription->save(); // Sauvegarde les données dans la base de données
+        }
+
+
+        return redirect()->back()->with('success', 'Pre-Inscription validated !');
+    }
+
+    private function createUser(PreInscription $preInscription)
+    {
+
+        $password = Str::random(10);
+        // Create or retrieve the first user with specific email
+        $user = User::firstOrCreate([
+            'email' => $preInscription->email
+        ], [
+            'name' => $preInscription->nom . " " . $preInscription->prenom, // Use dot (.) for string concatenation
+            'email' => $preInscription->email,
+            'password' => Hash::make($password), // Generate a random password
+        ]);
+
+        // Assign a role to the user (make sure to specify the role)
+        $user->assignRole('bachelier'); // Replace 'admin' with the appropriate role name
+
+        Mail::to($user->email)
+        ->send(new SendValidationCondidature($user->name ,$user->email , $password));
+
+        return $user;
     }
 }

@@ -38,10 +38,13 @@
 		<!-- End Loader -->
         <!-- Page -->
 		<div class="page main-signin-wrapper">
+            @if (session('success'))
+                    <div class="alert alert-success">{{ session('success') }}</div>
+            @endif
             {{ $slot }}
         </div>
 
-        
+
 		<!-- Jquery js-->
 		<script src="../../assets/plugins/jquery/jquery.min.js"></script>
 

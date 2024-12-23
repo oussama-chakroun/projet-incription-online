@@ -1,34 +1,26 @@
 <?php
-
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
-use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
+use Illuminate\Mail\Mailables\Content;
 use Illuminate\Queue\SerializesModels;
 
-class SendValidationCondidature extends Mailable
+class SendRejectedCondidature extends Mailable
 {
     use Queueable, SerializesModels;
 
     public string $recipientName;
-    public string $recipientEmail;
-    public string $password;
 
     /**
      * Create a new message instance.
      *
      * @param string $recipientName
-     * @param string $recipientEmail
-     * @param string $password
      */
-    public function __construct(string $recipientName, string $recipientEmail, string $password)
+    public function __construct(string $recipientName)
     {
         $this->recipientName = $recipientName;
-        $this->recipientEmail = $recipientEmail;
-        $this->password = $password;
     }
 
     /**
@@ -47,10 +39,9 @@ class SendValidationCondidature extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'mails.send-validation-condidature',
+            view: 'mails.send-rejection-condidature'
         );
     }
-
 
     /**
      * Get the message data for the view.
@@ -59,8 +50,6 @@ class SendValidationCondidature extends Mailable
     {
         return $this->with([
             'recipientName' => $this->recipientName,
-            'recipientEmail' => $this->recipientEmail,
-            'password' => $this->password,
         ]);
     }
 
