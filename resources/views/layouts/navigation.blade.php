@@ -123,7 +123,7 @@
             </div> --}}
             <div class="dropdown main-profile-menu">
                 <a class="d-flex" href="">
-                    <span class="main-img-user" ><img alt="avatar" src="{{ asset('storage\images\users\default-avatar.jpg') }}"></span>
+                    <span class="main-img-user" ><img alt="avatar" src="{{ asset('storage\iamges\default-avatar.jpg') }}"></span>
                 </a>
                 <div class="dropdown-menu">
                     <div class="header-navheading">
@@ -138,10 +138,6 @@
                             <i class="si si-energy"></i>{{__('messages.roles_and_permission')}}
                         </a>
                     @endrole
-
-                    <a class="dropdown-item" href="profile.html">
-                        <i class="fe fe-compass"></i> {{__('messages.activity')}}
-                    </a>
                     <form class="dropdown-item" method="POST" action="{{ route('logout') }}">
                         @csrf
                         <i class="fe fe-power"></i>
@@ -150,11 +146,6 @@
                         </button>
                     </form>
                 </div>
-            </div>
-            <div class="dropdown d-md-flex header-settings">
-                <a href="#" class="nav-link icon" data-toggle="sidebar-right" data-target=".sidebar-right">
-                    <i class="fe fe-align-right header-icons"></i>
-                </a>
             </div>
             <button class="navbar-toggler navresponsive-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4"
                 aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
