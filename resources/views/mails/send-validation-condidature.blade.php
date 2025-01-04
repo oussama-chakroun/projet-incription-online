@@ -19,7 +19,7 @@
             border-radius: 5px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
-        h1 {
+        span {
             color: #5cb85c;
         }
     </style>
@@ -27,7 +27,7 @@
 <body>
     <div class="container">
         <p>Dear {{ $recipientName }},</p>
-        <p>Your application has been successfully validated. Here are your details:</p>
+        <p>Your inscription at UPF has been <span>successfully validated</span>. Here are your details:</p>
         <p><strong>Email:</strong> {{ $recipientEmail }}</p>
         <p><strong>Password:</strong> {{ $password }}</p>
         <p>Please keep your password secure and do not share it with others.</p>

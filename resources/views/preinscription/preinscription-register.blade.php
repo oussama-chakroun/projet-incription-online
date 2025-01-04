@@ -56,7 +56,7 @@
                                 <label class="mg-b-0">File Upload</label>
                             </div>
                             <div class="col-md-8 mg-t-5 mg-md-t-0">
-                                <input type="file" class="form-control" name="file" accept=".jpg, .png, .jpeg, .zip, .css, .js" required>
+                                <input type="file" class="form-control" name="file[]" accept=".jpg, .png, .jpeg, .pdf" required multiple>
                             </div>
                         </div>
 

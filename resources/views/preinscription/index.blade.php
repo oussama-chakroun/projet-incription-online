@@ -48,13 +48,21 @@
                                                     <label class="badge bg-warning text-white mx-1">Not Yet</label>
                                                 @endif
                                             </td>
-                                            <td>
-                                                @if (isset($item->file))
-                                                    <a href="{{ Storage::url($item->file) }}" target="_blank"
-                                                        class="btn btn-sm btn-primary">Document</a>
-                                                @else
-                                                    No document
-                                                @endif
+                                            <td style="max-width: 40px; overflow-x: auto; white-space: nowrap;">
+                                                <div style="display: inline-block;">
+                                                    @if (isset($item->file) && !empty($item->file))
+                                                        @php
+                                                            $files = explode(',', $item->file); // Split the file paths by comma
+                                                        @endphp
+                                                        @foreach ($files as $index => $file)
+                                                            <a href="{{ Storage::url(trim($file)) }}" target="_blank" class="btn btn-sm btn-primary" style="margin-right: 5px;">
+                                                                {{ $index+1 }}
+                                                            </a>
+                                                        @endforeach
+                                                    @else
+                                                        No document
+                                                    @endif
+                                                </div>
                                             </td>
                                             <td>
 
@@ -71,7 +79,7 @@
                                                 @endrole
 
                                                 @role('super-admin')
-                                                    <a href="{{ url('items/' . $item->id . '/delete') }}"
+                                                    <a href="{{ route('pre_inscription.delete' , $item) }}"
                                                         class="btn btn-sm btn-danger mx-2">{{ __('messages.delete') }}</a>
                                                 @endrole
                                             </td>

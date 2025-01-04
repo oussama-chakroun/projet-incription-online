@@ -61,6 +61,7 @@ Route::middleware('auth')->group(function () {
         Route::get('users/{userId}/delete', [UserController::class, 'destroy']);
 
         Route::get('/pre_inscription/list', [PreInscriptionController::class , 'index'])->name('pre_inscription.list');
+        Route::get('/pre_inscription/delete/{preInscription}', [PreInscriptionController::class , 'delete'])->name('pre_inscription.delete');
         Route::get('/pre_inscription/validateCondidature/{preInscription}', [PreInscriptionController::class , 'validateCondidature'])->name('pre_inscription.validateCondidature');
         Route::get('/pre_inscription/rejectCondidature/{preInscription}', [PreInscriptionController::class , 'rejectCondidature'])->name('pre_inscription.rejectCondidature');
 
