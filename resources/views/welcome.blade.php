@@ -144,8 +144,8 @@
                             data-param8="" data-param9="" data-param10="" data-description="">
                             <!-- MAIN IMAGE -->
                             <img src="assets-template-2/images/slides/Faculteì des Sciences de l’Ingeìnieur -03 (1).jpg"
-                                alt="" data-bgposition="center center" data-bgfit="cover"
-                                data-bgparallax="3" class="rev-slidebg" data-no-retina>
+                            alt="" data-bgposition="center center" data-bgfit="cover"
+                            data-bgparallax="3" class="rev-slidebg" data-no-retina>
                             <!-- LAYERS -->
 
                             <!-- BACKGROUND VIDEO LAYER -->
@@ -675,11 +675,11 @@
         <section class="dark-bg lg-section" id="about">
             <div class="col-md-6 col-sm-4 bg-flex bg-flex-right">
                 <div class="bg-flex-holder bg-flex-cover"
-                    style="background-image: url(assets-template-2/images/bg-right-img.jpg);"></div>
+                    style="background-image: url(assets-template-2/images/dontdelete.PNG);"></div>
                 <div class="video-box_overlay">
                     <div class="center-layout">
                         <div class="v-align-middle"> <a class="popup-youtube"
-                                href="https://youtu.be/ofiTNiwgNsA?si=e2gInW5ZbgoMAzQ4">
+                                href="https://www.youtube.com/watch?v=DlQRNZDeLi0">
                                 <div class="play-button"><i class="tr-icon ion-android-arrow-dropright"></i></div>
                             </a> </div>
                     </div>
@@ -829,83 +829,11 @@
         </div>
         <!--== Clients End ==-->
 
-        <!--== Video Start ==-->
-        <section class="parallax-bg fixed-bg"
-            data-parallax-bg-image="assets-template-2/images/background/nouvelle-image.jpg" data-parallax-speed="0.5"
-            data-parallax-direction="up">
-            <div class="overlay-bg"></div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-8 text-center parallax-content height-400px centerize-col">
-                        <div class="center-layout">
-                            <div class="v-align-middle">
-                                <h1 class="font-400 white-color play-font"></h1>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!--== Video End ==-->
+
 
 
         <!--== Contact Start ==-->
-        <section class="dark-bg pt-0 pb-0 transition-none" id="contact">
-            <div class="col-md-6 col-sm-4 bg-flex bg-flex-right">
-                <div class="bg-flex-holder bg-flex-cover">
-                    <div id="map-style-2" class="wide"></div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="col-md-5 col-sm-7 pt-120 pb-120 xs-pt-20 xs-pb-80">
 
-                    <form name="contact-form" id="contact-form" action="php/contact.php" method="POST"
-                        class="contact-form-style-02">
-                        <div class="messages"></div>
-                        <div class="row">
-                            <div class="col-md-6 col-sm-6">
-                                <div class="form-group">
-                                    <label class="sr-only" for="name">Name</label>
-                                    <input type="text" name="name" class="md-input style-02" id="name"
-                                        placeholder="Name *" required data-error="Your Name is Required">
-                                    <div class="help-block with-errors"></div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 col-sm-6">
-                                <div class="form-group">
-                                    <label class="sr-only" for="email">Email</label>
-                                    <input type="email" name="email" class="md-input style-02" id="email"
-                                        placeholder="Email *" required data-error="Please Enter Valid Email">
-                                    <div class="help-block with-errors"></div>
-                                </div>
-                            </div>
-                            <div class="col-md-12 col-sm-12">
-                                <div class="form-group">
-                                    <label class="sr-only" for="subject">Subject</label>
-                                    <input type="text" name="subject" class="md-input style-02" id="subject"
-                                        placeholder="Subject">
-                                </div>
-                            </div>
-                            <div class="col-md-12 col-sm-12">
-                                <div class="form-group">
-                                    <label class="sr-only" for="message">Project Details</label>
-                                    <textarea name="message" class="md-textarea style-02" id="message" rows="7" placeholder="Project Details"
-                                        required data-error="Please, Leave us a message"></textarea>
-                                    <div class="help-block with-errors"></div>
-                                </div>
-                            </div>
-                            <div class="col-md-12 col-sm-12">
-                                <div class="text-left mt-20">
-                                    <button type="submit" name="submit"
-                                        class="btn btn-lg btn-light-outline btn-square remove-margin">Send Message
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </section>
         <!--== Contact End ==-->
 
         <!--== Footer Start ==-->

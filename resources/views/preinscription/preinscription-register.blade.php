@@ -1,8 +1,12 @@
 <x-guest-layout>
+
     <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
         <div class="col-lg-6 col-md-12">
             <div class="card custom-card">
                 <div class="card-body">
+                    <img src="assets-template-2/images/slides/LOGO-02-UPF-2018.png"
+                                alt="" data-bgposition="center center" data-bgfit="cover"
+                                data-bgrepeat="no-repeat" data-bgparallax="3" class="rev-slidebg" data-no-retina>
                     <div>
                         <h6 class="main-content-label mb-1">Preinscription</h6>
                         <p class="text-muted card-sub-title">Veuillez entrer les informations necessaires.</p>
@@ -64,7 +68,6 @@
                         <div class="form-group row justify-content-end mb-0">
                             <div class="col-md-8 pl-md-2">
                                 <button type="submit" class="btn ripple btn-primary pd-x-30 mg-r-5">Register</button>
-                                <button type="reset" class="btn ripple btn-secondary pd-x-30">Cancel</button>
                                 <a href="/" class="btn ripple btn-secondary pd-x-30">Home</a>
                             </div>
                         </div>
