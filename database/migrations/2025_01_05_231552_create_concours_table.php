@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('concours', function (Blueprint $table) {
             $table->id();
             $table->foreignId("user_id")->constrained();
+            $table->foreignId("convocation_id")->nullable()->constrained();
             $table->string("choix")->nullable();
             $table->string('file')->nullable();
             $table->boolean("status")->nullable();

@@ -13,8 +13,13 @@ return new class extends Migration
     {
         Schema::create('convocations', function (Blueprint $table) {
             $table->id();
-            $table->date("convocation_date");
-
+            $table->string('title');
+            $table->date('convocation_date');
+            $table->time('start_time');
+            $table->time('end_time')->nullable();
+            $table->string('location');
+            $table->text('description')->nullable();
+            $table->boolean('status')->nullable();
             $table->timestamps();
         });
     }

@@ -24,6 +24,12 @@
                     <a class="nav-link" href="{{ route('concour.index') }}"><span class="shape1"></span><span class="shape2"></span><i class="mdi mdi-account-multiple sidemenu-icon"></i><span class="sidemenu-label">{{__('Condidature List')}}</span></a>
                 </li>
             @endrole
+
+            @role('super-admin|admin')
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('convocations.index') }}"><span class="shape1"></span><span class="shape2"></span><i class="mdi mdi-account-multiple sidemenu-icon"></i><span class="sidemenu-label">{{__('Manage Convocations')}}</span></a>
+                </li>
+            @endrole
         </ul>
     </div>
 </div>

@@ -14,5 +14,10 @@ class Concour extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function convocation()
+    {
+        return $this->belongsTo(Convocation::class)->where('status', 1);
+    }
+
 
 }

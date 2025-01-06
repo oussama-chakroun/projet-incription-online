@@ -107,6 +107,14 @@
                                                 <label class="pt-3 main-content-label tx-13 font-weight-bold mb-1">Vous êtes
                                                     admis ({{ $concous->choix }})</label>
                                             </div>
+
+                                            @if ($concous->convocation)
+                                            <div class="card-item-body mb-2">
+
+                                                <a href="{{ route('download.convocation' , $concous) }}">Download
+                                                    Convocation Details</a>
+                                            </div>
+                                        @endif
                                         </div>
                                     </div>
                                 </div>
@@ -150,6 +158,9 @@
                                                 ({{ $concous->choix }})
                                             </label>
                                         </div>
+
+
+
                                     </div>
                                 </div>
                             </div>

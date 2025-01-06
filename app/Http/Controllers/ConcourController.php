@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ConvocationDetailsMail;
 use App\Mail\SendRejectedCondidature;
 use App\Mail\SendValidationCondidature;
 use App\Models\Concour;
+use App\Models\Convocation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
@@ -16,7 +18,8 @@ class ConcourController extends Controller
     public function index()
     {
         $items = Concour::all();
-        return view("concour.index", compact('items'));
+        $convocations = Convocation::where('status', 1)->get();
+        return view("concour.index", compact('items' , 'convocations'));
     }
 
     public function store(Request $request)
@@ -68,19 +71,24 @@ class ConcourController extends Controller
         return redirect()->back()->with('success', 'concour rejected !');
     }
 
-    public function validateConcour(Concour $concour)
+    public function validateConcour(Concour $concour ,Request $request)
     {
 
+        if($request->convocation_id){
+            $concour->convocation_id = $request->convocation_id;
+
+        }
 
         if ($concour->status != 1) {
 
             $concour->status = 1;
 
-            $concour->save(); // Sauvegarde les données dans la base de données
         }
+        $concour->save(); // Sauvegarde les données dans la base de données
 
+        $convocation = Convocation::findOrFail($concour->convocation_id);
         Mail::to($concour->user->email)
-            ->send(new SendValidationCondidature($concour->user->name, $concour->user->email, "tets"));
+            ->send(new ConvocationDetailsMail($convocation , $concour->user->name));
 
 
         return redirect()->back()->with('success', 'concour validated !');

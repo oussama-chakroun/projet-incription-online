@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ConcourController;
+use App\Http\Controllers\ConvocationController;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoleController;
@@ -49,8 +50,15 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('concour', ConcourController::class);
 
-    Route::get('/concour/validateConcour/{concour}', [ConcourController::class , 'validateConcour'])->name('concour.validateConcour');
+    // Route::get('/concour/validateConcour/{concour}', [ConcourController::class , 'validateConcour'])->name('concour.validateConcour');
     Route::get('/concour/rejectConcour/{concour}', [ConcourController::class , 'rejectConcour'])->name('concour.rejectConcour');
+    Route::post('concour/validateConcour/{concour}', [ConcourController::class , 'validateConcour'])->name('concour.validateConcour');
+
+
+    Route::resource('convocations', ConvocationController::class);
+
+    // routes/web.php
+    Route::get('/download/convocation/{concour}', [ConvocationController::class, 'downloadConvocationDetails'])->name("download.convocation");
 
     Route::group(['middleware' => ['role:super-admin|admin|support']], function() {
 
