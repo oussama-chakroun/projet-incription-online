@@ -15,7 +15,13 @@
 
             @role('super-admin|admin')
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('pre_inscription.list') }}"><span class="shape1"></span><span class="shape2"></span><i class="mdi mdi-account-multiple sidemenu-icon"></i><span class="sidemenu-label">{{__('messages.pre_inscription_list')}}</span></a>
+                    <a class="nav-link" href="{{ route('pre_inscription.list') }}"><span class="shape1"></span><span class="shape2"></span><i class="mdi mdi-account-multiple sidemenu-icon"></i><span class="sidemenu-label">{{__('Pre inscription list')}}</span></a>
+                </li>
+            @endrole
+
+            @role('super-admin|admin')
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('concour.index') }}"><span class="shape1"></span><span class="shape2"></span><i class="mdi mdi-account-multiple sidemenu-icon"></i><span class="sidemenu-label">{{__('Condidature List')}}</span></a>
                 </li>
             @endrole
         </ul>

@@ -27,7 +27,7 @@ class PreInscriptionController extends Controller
             'prenom' => 'required|string|max:255',
             'email' => 'required|email|unique:pre_inscriptions,email',
             'date_naissance' => 'required|date',
-            'file.*' => 'nullable|file|mimes:jpg,png,pdf,docx|max:10240', // 10MB max
+            'file.*' => 'nullable|file|mimes:jpg,png,pdf', // 10MB max
         ]);
 
         // Sauvegarde des informations dans la base de données

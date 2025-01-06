@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ConcourController;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoleController;
@@ -46,10 +47,17 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::get('/user/{user}/{lang}', [UserController::class, 'updateLang'])->name('user.lang');
 
+    Route::resource('concour', ConcourController::class);
+
+    Route::get('/concour/validateConcour/{concour}', [ConcourController::class , 'validateConcour'])->name('concour.validateConcour');
+    Route::get('/concour/rejectConcour/{concour}', [ConcourController::class , 'rejectConcour'])->name('concour.rejectConcour');
+
     Route::group(['middleware' => ['role:super-admin|admin|support']], function() {
 
         Route::resource('permissions', PermissionController::class);
         Route::get('permissions/{permissionId}/delete', [PermissionController::class, 'destroy']);
+
+
 
         Route::resource('roles', RoleController::class);
         Route::get('roles/{roleId}/delete', [RoleController::class, 'destroy']);
@@ -64,6 +72,13 @@ Route::middleware('auth')->group(function () {
         Route::get('/pre_inscription/delete/{preInscription}', [PreInscriptionController::class , 'delete'])->name('pre_inscription.delete');
         Route::get('/pre_inscription/validateCondidature/{preInscription}', [PreInscriptionController::class , 'validateCondidature'])->name('pre_inscription.validateCondidature');
         Route::get('/pre_inscription/rejectCondidature/{preInscription}', [PreInscriptionController::class , 'rejectCondidature'])->name('pre_inscription.rejectCondidature');
+
+
+        Route::get('/concour/delete/{concour}', [ConcourController::class , 'delete'])->name('concour.delete');
+
+        Route::get('/concour/validateConcour/{concour}', [ConcourController::class , 'validateConcour'])->name('concour.validateConcour');
+        Route::get('/concour/rejectConcour/{concour}', [ConcourController::class , 'rejectConcour'])->name('concour.rejectConcour');
+
 
     });
 });

@@ -1,5 +1,5 @@
-<div class="main-content-body tab-pane p-4 border-top-0 @unless ($errors->getBag('updatePassword')->has('current_password') || 
-            $errors->getBag('updatePassword')->has('password') || 
+<div class="main-content-body tab-pane p-4 border-top-0 @unless ($errors->getBag('updatePassword')->has('current_password') ||
+            $errors->getBag('updatePassword')->has('password') ||
             $errors->getBag('updatePassword')->has('password_confirmation'))
             active
         @endunless" id="info">
@@ -15,7 +15,7 @@
                         <label class="form-label">{{__('messages.user')}} {{__('messages.name')}}</label>
                     </div>
                     <div class="col-md-9">
-                        <input type="text" class="form-control @error('name') is-invalid state-invalid @enderror" name="name" placeholder="{{__('messages.user')}} {{__('messages.name')}}" value="{{old('name', $user->name)}}"> 
+                        <input type="text" class="form-control @error('name') is-invalid state-invalid @enderror" name="name" placeholder="{{__('messages.user')}} {{__('messages.name')}}" value="{{old('name', $user->name)}}">
                         @error('name')
                             <span class="invalid-feedback">{{ $message }}</span>
                         @enderror
@@ -27,9 +27,9 @@
                     <div class="col-md-3">
                         <label class="form-label">{{__('messages.email')}}</label>
                     </div>
-                    
+
                     <div class="col-md-9">
-                        <input type="text" class="form-control @error('email') is-invalid state-invalid @enderror" name="email" placeholder="{{__('messages.email')}}" value="{{old('email', $user->email)}}"> 
+                        <input type="text" readonly class="form-control @error('email') is-invalid state-invalid @enderror" name="email" placeholder="{{__('messages.email')}}" value="{{old('email', $user->email)}}">
                         @error('email')
                             <span class="invalid-feedback">{{ $message }}</span>
                         @enderror

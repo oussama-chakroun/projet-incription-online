@@ -48,4 +48,8 @@ class User extends Authenticatable
     {
         return $this->belongsTo(PreInscription::class);
     }
+    public function concours()
+    {
+        return $this->hasMany(Concour::class);
+    }
 }
